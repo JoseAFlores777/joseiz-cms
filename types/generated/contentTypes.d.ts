@@ -1443,7 +1443,8 @@ export interface ApiSkillSkill extends Schema.CollectionType {
         'Backend Development',
         'Database',
         'Design',
-        'Testing Frameworks'
+        'Testing Frameworks',
+        'Containerization'
       ]
     > &
       Attribute.SetPluginOptions<{

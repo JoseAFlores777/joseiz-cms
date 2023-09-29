@@ -10,7 +10,8 @@ export enum Category {
   BackendDevelopment = 'Backend Development',
   Database = 'Database',
   Design = 'Design',
-  TestingFrameworks = 'Testing Frameworks',}
+  TestingFrameworks = 'Testing Frameworks',
+  Containerization = 'Containerization',}
 
 export interface Skill {
   id: number;
