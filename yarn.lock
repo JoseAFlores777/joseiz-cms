@@ -1655,7 +1655,7 @@
     plop "2.7.6"
     pluralize "8.0.0"
 
-"@strapi/helper-plugin@^4.9.1", "@strapi/helper-plugin@4.14.0":
+"@strapi/helper-plugin@^4.12.1", "@strapi/helper-plugin@^4.9.1", "@strapi/helper-plugin@4.14.0":
   version "4.14.0"
   resolved "https://registry.npmjs.org/@strapi/helper-plugin/-/helper-plugin-4.14.0.tgz"
   integrity sha512-1h2hddIsK94xjtA+RFk0wDLCUYuFF2HNJEoHRUCnnWrlCZIkfD7Ww1XhWwnzvdElXzwwMXsNnhfEDeySWY3fWw==
@@ -8146,7 +8146,7 @@ prebuild-install@^7.1.1:
     tar-fs "^2.0.0"
     tunnel-agent "^0.6.0"
 
-prettier@2.8.4:
+prettier@^2.7.2, prettier@2.8.4:
   version "2.8.4"
   resolved "https://registry.npmjs.org/prettier/-/prettier-2.8.4.tgz"
   integrity sha512-vIS4Rlc2FNh0BySk3Wkd6xmwxB0FpOndW5fisM5H8hsZSxU2VWVB5CWIkIjWvrHjIhxk2g3bfMKM87zNTrZddw==
@@ -9433,6 +9433,15 @@ strapi-plugin-country-select@^1.0.2:
   integrity sha512-YNr3MavJJROmEnlmDi4IMcnhi83t5/hw3AlDQecV1fJPJiAi4DwPSMZwur9RlVsRwAlsxR8JBa/RHNeo9FGdhg==
   dependencies:
     i18n-iso-countries "^7.5.0"
+
+strapi-plugin-schemas-to-ts@^1.1.10:
+  version "1.1.10"
+  resolved "https://registry.npmjs.org/strapi-plugin-schemas-to-ts/-/strapi-plugin-schemas-to-ts-1.1.10.tgz"
+  integrity sha512-TQBZbaJpoSe9l7OGJPAzO3BtNwgG9RaATJAzBeQ8m+B+zwMacfJHooJI9PXrcHZssqKe7bc/qtMrKD8da7X3Cw==
+  dependencies:
+    "@strapi/helper-plugin" "^4.12.1"
+    pascal-case "^3.1.2"
+    prettier "^2.7.2"
 
 stream-chain@^2.2.5, stream-chain@2.2.5:
   version "2.2.5"
