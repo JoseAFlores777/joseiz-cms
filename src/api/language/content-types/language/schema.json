@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "languages",
+  "info": {
+    "singularName": "language",
+    "pluralName": "languages",
+    "displayName": "Language",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "iconName": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "languageName"
+    },
+    "languageName": {
+      "type": "string",
+      "required": true
+    },
+    "proficiencyLevel": {
+      "type": "string",
+      "required": true,
+      "default": "Basic"
+    }
+  }
+}

@@ -333,6 +333,18 @@
   resolved "https://registry.npmjs.org/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
+"@bn-digital/strapi-plugin-field-uuid@^1.2.12":
+  version "1.2.12"
+  resolved "https://registry.npmjs.org/@bn-digital/strapi-plugin-field-uuid/-/strapi-plugin-field-uuid-1.2.12.tgz"
+  integrity sha512-SzDxL0YD5F5G2zLmYFcTQ5RT/MlTFgpgvs8IenbPX/u/3PFOI+9EcJ4XH4762PPo9b0EKXRKE+6/+1WNOsmucA==
+  dependencies:
+    "@strapi/design-system" "^1.6.6"
+    "@strapi/helper-plugin" "^4.9.1"
+    "@strapi/icons" "^1.6.6"
+    prop-types "^15.8.1"
+    react-intl "^6.4.0"
+    uuid "^9.0.0"
+
 "@casl/ability@6.5.0":
   version "6.5.0"
   resolved "https://registry.npmjs.org/@casl/ability/-/ability-6.5.0.tgz"
@@ -1592,7 +1604,7 @@
     semver "7.5.4"
     umzug "3.2.1"
 
-"@strapi/design-system@1.11.0":
+"@strapi/design-system@^1.6.6", "@strapi/design-system@1.11.0":
   version "1.11.0"
   resolved "https://registry.npmjs.org/@strapi/design-system/-/design-system-1.11.0.tgz"
   integrity sha512-ynWlCV8ClvUy6RVse07a/cCKCUfNsYDez389/b7BGHPwXFBFwkn04K+8nIdK+o/tPgwDrVZ3HXh5e15nsuvblA==
@@ -1643,7 +1655,7 @@
     plop "2.7.6"
     pluralize "8.0.0"
 
-"@strapi/helper-plugin@4.14.0":
+"@strapi/helper-plugin@^4.9.1", "@strapi/helper-plugin@4.14.0":
   version "4.14.0"
   resolved "https://registry.npmjs.org/@strapi/helper-plugin/-/helper-plugin-4.14.0.tgz"
   integrity sha512-1h2hddIsK94xjtA+RFk0wDLCUYuFF2HNJEoHRUCnnWrlCZIkfD7Ww1XhWwnzvdElXzwwMXsNnhfEDeySWY3fWw==
@@ -1660,7 +1672,7 @@
     react-query "3.39.3"
     react-select "5.7.0"
 
-"@strapi/icons@^1.5.0", "@strapi/icons@1.11.0":
+"@strapi/icons@^1.5.0", "@strapi/icons@^1.6.6", "@strapi/icons@1.11.0":
   version "1.11.0"
   resolved "https://registry.npmjs.org/@strapi/icons/-/icons-1.11.0.tgz"
   integrity sha512-f609vYHoKPWg5OBMFNN40j8ow11oWZgZYzX1KvjncXs/c5qkCeoMyN289e1XSaDTPrDAiPzLgKLshWpJVpZBxw==
@@ -1841,7 +1853,7 @@
     "@strapi/utils" "4.14.0"
     fs-extra "10.0.0"
 
-"@strapi/strapi@^4.3.4", "@strapi/strapi@4.14.0":
+"@strapi/strapi@^4.3.4", "@strapi/strapi@^4.4.0", "@strapi/strapi@4.14.0":
   version "4.14.0"
   resolved "https://registry.npmjs.org/@strapi/strapi/-/strapi-4.14.0.tgz"
   integrity sha512-J7WFXAJaMkrz/SHknjyKqqzARiUjtaGvHD1I30Ynhdta65gXKchjtXd4RPcI8hhGE+3kdaIz56b7aCM+XmnupA==
@@ -4133,6 +4145,11 @@ detect-node@^2.0.4, detect-node@^2.1.0:
   resolved "https://registry.npmjs.org/detect-node/-/detect-node-2.1.0.tgz"
   integrity sha512-T0NIuQpnTvFDATNuHN5roPwSBG83rFsuO+MXXH9/3N1eFbn4wcPjttvjMLEPWJ0RGUYgQE7cGgS3tNxbqCGM7g==
 
+diacritics@1.3.0:
+  version "1.3.0"
+  resolved "https://registry.npmjs.org/diacritics/-/diacritics-1.3.0.tgz"
+  integrity sha512-wlwEkqcsaxvPJML+rDh/2iS824jbREk6DUMUKkEaSlxdYHeS43cClJtsWglvw2RfeXGm6ohKDqsXteJ5sP5enA==
+
 diff-sequences@^29.6.3:
   version "29.6.3"
   resolved "https://registry.npmjs.org/diff-sequences/-/diff-sequences-29.6.3.tgz"
@@ -5503,6 +5520,13 @@ human-signals@^2.1.0:
   version "2.1.0"
   resolved "https://registry.npmjs.org/human-signals/-/human-signals-2.1.0.tgz"
   integrity sha512-B4FFZ6q/T2jhhksgkbEW3HBvWIfDW85snkQgawt07S7J5QXTk6BkNV+0yAeZrM5QpMAdYlocGoljn0sJ/WQkFw==
+
+i18n-iso-countries@^7.5.0:
+  version "7.7.0"
+  resolved "https://registry.npmjs.org/i18n-iso-countries/-/i18n-iso-countries-7.7.0.tgz"
+  integrity sha512-07zMatrSsR1Z+cnxW//7s14Xf4v5g6U6ORHPaH8+Ox4uPqV+y46Uq78veYV8H1DKTr76EfdjSeaTxHpnaYq+bw==
+  dependencies:
+    diacritics "1.3.0"
 
 iconv-lite@^0.4.24, iconv-lite@0.4.24:
   version "0.4.24"
@@ -8370,7 +8394,7 @@ react-helmet@^6.1.0, react-helmet@6.1.0:
     react-fast-compare "^3.1.1"
     react-side-effect "^2.1.0"
 
-react-intl@6.4.1:
+react-intl@^6.4.0, react-intl@6.4.1:
   version "6.4.1"
   resolved "https://registry.npmjs.org/react-intl/-/react-intl-6.4.1.tgz"
   integrity sha512-/aT5595AEMZ+Pjmt8W2R5/ZkYJmyyd6jTzHzqhJ1LnfeG36+N5huBtykxYhHqLc1BrIRQ1fTX1orYC0Ej5ojtg==
@@ -9403,6 +9427,13 @@ std-env@^3.0.1:
   resolved "https://registry.npmjs.org/std-env/-/std-env-3.4.3.tgz"
   integrity sha512-f9aPhy8fYBuMN+sNfakZV18U39PbalgjXG3lLB9WkaYTxijru61wb57V9wxxNthXM5Sd88ETBWi29qLAsHO52Q==
 
+strapi-plugin-country-select@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.npmjs.org/strapi-plugin-country-select/-/strapi-plugin-country-select-1.0.2.tgz"
+  integrity sha512-YNr3MavJJROmEnlmDi4IMcnhi83t5/hw3AlDQecV1fJPJiAi4DwPSMZwur9RlVsRwAlsxR8JBa/RHNeo9FGdhg==
+  dependencies:
+    i18n-iso-countries "^7.5.0"
+
 stream-chain@^2.2.5, stream-chain@2.2.5:
   version "2.2.5"
   resolved "https://registry.npmjs.org/stream-chain/-/stream-chain-2.2.5.tgz"
@@ -10022,6 +10053,11 @@ uuid@^8.3.2:
   version "8.3.2"
   resolved "https://registry.npmjs.org/uuid/-/uuid-8.3.2.tgz"
   integrity sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==
+
+uuid@^9.0.0:
+  version "9.0.1"
+  resolved "https://registry.npmjs.org/uuid/-/uuid-9.0.1.tgz"
+  integrity sha512-b+1eJOlsR9K8HJpow9Ok3fiWOWSIcIzXodvv0rQjVoOVNpWMpxf1wZNpt4y9h10odCNrqnYp1OBzRktckBe3sA==
 
 v8-to-istanbul@^9.0.1:
   version "9.1.0"
