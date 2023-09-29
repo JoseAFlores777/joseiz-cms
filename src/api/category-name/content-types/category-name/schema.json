@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "category_names",
+  "info": {
+    "singularName": "category-name",
+    "pluralName": "category-names",
+    "displayName": "techCategory",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

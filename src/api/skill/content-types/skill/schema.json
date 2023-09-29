@@ -21,23 +21,6 @@
       "relation": "oneToOne",
       "target": "api::linked-entity.linked-entity"
     },
-    "category": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "enumeration",
-      "enum": [
-        "Programming",
-        "Web Development",
-        "Backend Development",
-        "Database",
-        "Design",
-        "Testing Frameworks",
-        "Containerization"
-      ]
-    },
     "onPortfolio": {
       "pluginOptions": {
         "i18n": {
@@ -55,6 +38,11 @@
       },
       "type": "boolean",
       "default": true
+    },
+    "category": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::category-name.category-name"
     }
   }
 }

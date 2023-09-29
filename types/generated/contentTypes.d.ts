@@ -881,6 +881,37 @@ export interface ApiActivityActivity extends Schema.CollectionType {
   };
 }
 
+export interface ApiCategoryNameCategoryName extends Schema.CollectionType {
+  collectionName: 'category_names';
+  info: {
+    singularName: 'category-name';
+    pluralName: 'category-names';
+    displayName: 'techCategory';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::category-name.category-name',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::category-name.category-name',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiEducationEducation extends Schema.CollectionType {
   collectionName: 'educations';
   info: {
@@ -1436,22 +1467,6 @@ export interface ApiSkillSkill extends Schema.CollectionType {
       'oneToOne',
       'api::linked-entity.linked-entity'
     >;
-    category: Attribute.Enumeration<
-      [
-        'Programming',
-        'Web Development',
-        'Backend Development',
-        'Database',
-        'Design',
-        'Testing Frameworks',
-        'Containerization'
-      ]
-    > &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     onPortfolio: Attribute.Boolean &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -1466,6 +1481,11 @@ export interface ApiSkillSkill extends Schema.CollectionType {
         };
       }> &
       Attribute.DefaultTo<true>;
+    category: Attribute.Relation<
+      'api::skill.skill',
+      'oneToOne',
+      'api::category-name.category-name'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1690,6 +1710,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::achievement.achievement': ApiAchievementAchievement;
       'api::activity.activity': ApiActivityActivity;
+      'api::category-name.category-name': ApiCategoryNameCategoryName;
       'api::education.education': ApiEducationEducation;
       'api::general-info.general-info': ApiGeneralInfoGeneralInfo;
       'api::language.language': ApiLanguageLanguage;
