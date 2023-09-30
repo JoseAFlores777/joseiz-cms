@@ -1349,6 +1349,11 @@ export interface ApiLinkedEntityLinkedEntity extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    projects: Attribute.Relation<
+      'api::linked-entity.linked-entity',
+      'manyToMany',
+      'api::project.project'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1423,13 +1428,13 @@ export interface ApiProjectProject extends Schema.CollectionType {
   attributes: {
     primaryStack: Attribute.Relation<
       'api::project.project',
-      'oneToMany',
-      'api::skill.skill'
+      'manyToMany',
+      'api::linked-entity.linked-entity'
     >;
     secondaryStack: Attribute.Relation<
       'api::project.project',
-      'oneToMany',
-      'api::language.language'
+      'manyToMany',
+      'api::linked-entity.linked-entity'
     >;
     externalLinks: Attribute.Relation<
       'api::project.project',

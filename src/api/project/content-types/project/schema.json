@@ -18,13 +18,15 @@
   "attributes": {
     "primaryStack": {
       "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::skill.skill"
+      "relation": "manyToMany",
+      "target": "api::linked-entity.linked-entity",
+      "inversedBy": "projects"
     },
     "secondaryStack": {
       "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::language.language"
+      "relation": "manyToMany",
+      "target": "api::linked-entity.linked-entity",
+      "inversedBy": "projects"
     },
     "externalLinks": {
       "type": "relation",
