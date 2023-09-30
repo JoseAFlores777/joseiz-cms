@@ -26,14 +26,14 @@ export interface Project {
     projectName: string;
     shortDescription?: string;
     description?: string;
-    codeRepositoryUrl?: { data: WebLink };
-    previewUrl?: { data: WebLink };
     coverImage?: { data: Media };
     additionalImages?: { data: Media[] };
     difficultyLevel?: DifficultyLevel;
     onPortfolio?: boolean;
     onCv?: boolean;
     projectType?: { data: ProjectCategory };
+    codeRepositoryUrl?: string;
+    previewUrl?: string;
     locale: string;
     localizations?: { data: Project[] };
   };
@@ -46,14 +46,14 @@ export interface Project_Plain {
   projectName: string;
   shortDescription?: string;
   description?: string;
-  codeRepositoryUrl?: WebLink_Plain;
-  previewUrl?: WebLink_Plain;
   coverImage?: Media;
   additionalImages?: Media[];
   difficultyLevel?: DifficultyLevel;
   onPortfolio?: boolean;
   onCv?: boolean;
   projectType?: ProjectCategory_Plain;
+  codeRepositoryUrl?: string;
+  previewUrl?: string;
   locale: string;
   localizations?: Project[];
 }
@@ -66,14 +66,14 @@ export interface Project_NoRelations {
   projectName: string;
   shortDescription?: string;
   description?: string;
-  codeRepositoryUrl?: number;
-  previewUrl?: number;
   coverImage?: number;
   additionalImages?: number[];
   difficultyLevel?: DifficultyLevel;
   onPortfolio?: boolean;
   onCv?: boolean;
   projectType?: number;
+  codeRepositoryUrl?: string;
+  previewUrl?: string;
   locale: string;
   localizations?: Project[];
 }
@@ -86,14 +86,14 @@ export interface Project_AdminPanelLifeCycle {
   projectName: string;
   shortDescription?: string;
   description?: string;
-  codeRepositoryUrl?: AdminPanelRelationPropertyModification<WebLink_Plain>;
-  previewUrl?: AdminPanelRelationPropertyModification<WebLink_Plain>;
   coverImage?: AdminPanelRelationPropertyModification<Media>;
   additionalImages?: AdminPanelRelationPropertyModification<Media>[];
   difficultyLevel?: DifficultyLevel;
   onPortfolio?: boolean;
   onCv?: boolean;
   projectType?: AdminPanelRelationPropertyModification<ProjectCategory_Plain>;
+  codeRepositoryUrl?: string;
+  previewUrl?: string;
   locale: string;
   localizations?: Project[];
 }

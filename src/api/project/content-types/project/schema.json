@@ -57,16 +57,6 @@
       },
       "type": "richtext"
     },
-    "codeRepositoryUrl": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::web-link.web-link"
-    },
-    "previewUrl": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::web-link.web-link"
-    },
     "coverImage": {
       "type": "media",
       "multiple": false,
@@ -135,6 +125,22 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::project-category.project-category"
+    },
+    "codeRepositoryUrl": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "previewUrl": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
     }
   }
 }

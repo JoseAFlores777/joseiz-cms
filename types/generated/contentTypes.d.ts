@@ -744,11 +744,6 @@ export interface ApiAchievementAchievement extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    validationLink: Attribute.Relation<
-      'api::achievement.achievement',
-      'oneToOne',
-      'api::web-link.web-link'
-    >;
     noExpiration: Attribute.Boolean &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -786,6 +781,12 @@ export interface ApiAchievementAchievement extends Schema.CollectionType {
       'oneToOne',
       'api::modality-category.modality-category'
     >;
+    validationUrl: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1457,16 +1458,6 @@ export interface ApiProjectProject extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    codeRepositoryUrl: Attribute.Relation<
-      'api::project.project',
-      'oneToOne',
-      'api::web-link.web-link'
-    >;
-    previewUrl: Attribute.Relation<
-      'api::project.project',
-      'oneToOne',
-      'api::web-link.web-link'
-    >;
     coverImage: Attribute.Media &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -1506,6 +1497,18 @@ export interface ApiProjectProject extends Schema.CollectionType {
       'oneToOne',
       'api::project-category.project-category'
     >;
+    codeRepositoryUrl: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    previewUrl: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

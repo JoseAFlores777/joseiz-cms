@@ -2,11 +2,9 @@
 
 import { LinkedEntity } from '../../../linked-entity/content-types/linked-entity/linked-entity';
 import { Media } from '../../../../common/schemas-to-ts/Media';
-import { WebLink } from '../../../web-link/content-types/web-link/web-link';
 import { AchievementCategory } from '../../../achievement-category/content-types/achievement-category/achievement-category';
 import { ModalityCategory } from '../../../modality-category/content-types/modality-category/modality-category';
 import { LinkedEntity_Plain } from '../../../linked-entity/content-types/linked-entity/linked-entity';
-import { WebLink_Plain } from '../../../web-link/content-types/web-link/web-link';
 import { AchievementCategory_Plain } from '../../../achievement-category/content-types/achievement-category/achievement-category';
 import { ModalityCategory_Plain } from '../../../modality-category/content-types/modality-category/modality-category';
 import { AdminPanelRelationPropertyModification } from '../../../../common/schemas-to-ts/AdminPanelRelationPropertyModification';
@@ -22,13 +20,13 @@ export interface Achievement {
     achievementLogo?: { data: Media };
     shortDescription?: string;
     description?: string;
-    validationLink?: { data: WebLink };
     noExpiration?: boolean;
     onPortfolio?: boolean;
     onCv?: boolean;
     achieveLocation?: any;
     achievementType?: { data: AchievementCategory };
     modalityType?: { data: ModalityCategory };
+    validationUrl?: string;
     locale: string;
     localizations?: { data: Achievement[] };
   };
@@ -43,13 +41,13 @@ export interface Achievement_Plain {
   achievementLogo?: Media;
   shortDescription?: string;
   description?: string;
-  validationLink?: WebLink_Plain;
   noExpiration?: boolean;
   onPortfolio?: boolean;
   onCv?: boolean;
   achieveLocation?: any;
   achievementType?: AchievementCategory_Plain;
   modalityType?: ModalityCategory_Plain;
+  validationUrl?: string;
   locale: string;
   localizations?: Achievement[];
 }
@@ -64,13 +62,13 @@ export interface Achievement_NoRelations {
   achievementLogo?: number;
   shortDescription?: string;
   description?: string;
-  validationLink?: number;
   noExpiration?: boolean;
   onPortfolio?: boolean;
   onCv?: boolean;
   achieveLocation?: any;
   achievementType?: number;
   modalityType?: number;
+  validationUrl?: string;
   locale: string;
   localizations?: Achievement[];
 }
@@ -85,13 +83,13 @@ export interface Achievement_AdminPanelLifeCycle {
   achievementLogo?: AdminPanelRelationPropertyModification<Media>;
   shortDescription?: string;
   description?: string;
-  validationLink?: AdminPanelRelationPropertyModification<WebLink_Plain>;
   noExpiration?: boolean;
   onPortfolio?: boolean;
   onCv?: boolean;
   achieveLocation?: any;
   achievementType?: AdminPanelRelationPropertyModification<AchievementCategory_Plain>;
   modalityType?: AdminPanelRelationPropertyModification<ModalityCategory_Plain>;
+  validationUrl?: string;
   locale: string;
   localizations?: Achievement[];
 }
