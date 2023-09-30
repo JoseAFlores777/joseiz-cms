@@ -37,35 +37,6 @@
       },
       "type": "richtext"
     },
-    "employmentType": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "enumeration",
-      "enum": [
-        "Full-time",
-        "Part-time",
-        "Contract",
-        "Freelance",
-        "Internship",
-        "Temporary"
-      ]
-    },
-    "jobModality": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "enumeration",
-      "enum": [
-        "Remote",
-        "Hybrid",
-        "On-site"
-      ]
-    },
     "startDate": {
       "pluginOptions": {
         "i18n": {
@@ -121,6 +92,16 @@
       },
       "type": "customField",
       "customField": "plugin::country-select.country"
+    },
+    "employmentType": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::employment-category.employment-category"
+    },
+    "modality": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::modality-category.modality-category"
     }
   }
 }

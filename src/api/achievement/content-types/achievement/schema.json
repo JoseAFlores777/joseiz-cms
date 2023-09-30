@@ -29,34 +29,6 @@
       "relation": "oneToOne",
       "target": "api::linked-entity.linked-entity"
     },
-    "achievementType": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "enumeration",
-      "enum": [
-        "Award",
-        "Certificate",
-        "Degree",
-        "Diplom"
-      ],
-      "default": "Diplom"
-    },
-    "modality": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "enumeration",
-      "enum": [
-        "Remote",
-        "Hybrid",
-        "On-site"
-      ]
-    },
     "startDate": {
       "pluginOptions": {
         "i18n": {
@@ -161,6 +133,16 @@
       },
       "type": "customField",
       "customField": "plugin::country-select.country"
+    },
+    "achievementType": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::achievement-category.achievement-category"
+    },
+    "modalityType": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::modality-category.modality-category"
     }
   }
 }

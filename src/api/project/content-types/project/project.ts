@@ -4,27 +4,13 @@ import { Skill } from '../../../skill/content-types/skill/skill';
 import { Language } from '../../../language/content-types/language/language';
 import { WebLink } from '../../../web-link/content-types/web-link/web-link';
 import { Media } from '../../../../common/schemas-to-ts/Media';
+import { ProjectCategory } from '../../../project-category/content-types/project-category/project-category';
 import { Skill_Plain } from '../../../skill/content-types/skill/skill';
 import { Language_Plain } from '../../../language/content-types/language/language';
 import { WebLink_Plain } from '../../../web-link/content-types/web-link/web-link';
+import { ProjectCategory_Plain } from '../../../project-category/content-types/project-category/project-category';
 import { AdminPanelRelationPropertyModification } from '../../../../common/schemas-to-ts/AdminPanelRelationPropertyModification';
 
-export enum ProjectType {
-  Frontend = 'Frontend',
-  Backend = 'Backend',
-  DevOps = 'DevOps',
-  Design = 'Design',
-  MobileAppDevelopment = 'Mobile App Development',
-  DataScience = 'Data Science',
-  MachineLearning = 'Machine Learning',
-  ArtificialIntelligence = 'Artificial Intelligence',
-  IoTInternetOfThings = 'IoT (Internet of Things)',
-  GameDevelopment = 'Game Development',
-  Blockchain = 'Blockchain',
-  Cybersecurity = 'Cybersecurity',
-  CloudComputing = 'Cloud Computing',
-  WebDevelopment = 'Web Development',
-  UiUx = 'UI&UX',}
 export enum DifficultyLevel {
   Beginner = 'Beginner',
   Intermediate = 'Intermediate',
@@ -40,7 +26,6 @@ export interface Project {
     projectName: string;
     shortDescription?: string;
     description?: string;
-    projectType?: ProjectType;
     codeRepositoryUrl?: { data: WebLink };
     previewUrl?: { data: WebLink };
     coverImage?: { data: Media };
@@ -48,6 +33,7 @@ export interface Project {
     difficultyLevel?: DifficultyLevel;
     onPortfolio?: boolean;
     onCv?: boolean;
+    projectType?: { data: ProjectCategory };
     locale: string;
     localizations?: { data: Project[] };
   };
@@ -60,7 +46,6 @@ export interface Project_Plain {
   projectName: string;
   shortDescription?: string;
   description?: string;
-  projectType?: ProjectType;
   codeRepositoryUrl?: WebLink_Plain;
   previewUrl?: WebLink_Plain;
   coverImage?: Media;
@@ -68,6 +53,7 @@ export interface Project_Plain {
   difficultyLevel?: DifficultyLevel;
   onPortfolio?: boolean;
   onCv?: boolean;
+  projectType?: ProjectCategory_Plain;
   locale: string;
   localizations?: Project[];
 }
@@ -80,7 +66,6 @@ export interface Project_NoRelations {
   projectName: string;
   shortDescription?: string;
   description?: string;
-  projectType?: ProjectType;
   codeRepositoryUrl?: number;
   previewUrl?: number;
   coverImage?: number;
@@ -88,6 +73,7 @@ export interface Project_NoRelations {
   difficultyLevel?: DifficultyLevel;
   onPortfolio?: boolean;
   onCv?: boolean;
+  projectType?: number;
   locale: string;
   localizations?: Project[];
 }
@@ -100,7 +86,6 @@ export interface Project_AdminPanelLifeCycle {
   projectName: string;
   shortDescription?: string;
   description?: string;
-  projectType?: ProjectType;
   codeRepositoryUrl?: AdminPanelRelationPropertyModification<WebLink_Plain>;
   previewUrl?: AdminPanelRelationPropertyModification<WebLink_Plain>;
   coverImage?: AdminPanelRelationPropertyModification<Media>;
@@ -108,6 +93,7 @@ export interface Project_AdminPanelLifeCycle {
   difficultyLevel?: DifficultyLevel;
   onPortfolio?: boolean;
   onCv?: boolean;
+  projectType?: AdminPanelRelationPropertyModification<ProjectCategory_Plain>;
   locale: string;
   localizations?: Project[];
 }

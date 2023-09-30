@@ -57,31 +57,6 @@
       },
       "type": "richtext"
     },
-    "projectType": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "enumeration",
-      "enum": [
-        "Frontend",
-        "Backend",
-        "DevOps",
-        "Design",
-        "Mobile App Development",
-        "Data Science",
-        "Machine Learning",
-        "Artificial Intelligence",
-        "IoT (Internet of Things)",
-        "Game Development",
-        "Blockchain",
-        "Cybersecurity",
-        "Cloud Computing",
-        "Web Development",
-        "UI&UX"
-      ]
-    },
     "codeRepositoryUrl": {
       "type": "relation",
       "relation": "oneToOne",
@@ -155,6 +130,11 @@
       },
       "type": "boolean",
       "default": true
+    },
+    "projectType": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::project-category.project-category"
     }
   }
 }

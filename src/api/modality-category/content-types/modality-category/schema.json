@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "modality_categories",
+  "info": {
+    "singularName": "modality-category",
+    "pluralName": "modality-categories",
+    "displayName": "ModalityCategory"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

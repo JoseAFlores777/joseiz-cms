@@ -3,27 +3,19 @@
 import { LinkedEntity } from '../../../linked-entity/content-types/linked-entity/linked-entity';
 import { Media } from '../../../../common/schemas-to-ts/Media';
 import { WebLink } from '../../../web-link/content-types/web-link/web-link';
+import { AchievementCategory } from '../../../achievement-category/content-types/achievement-category/achievement-category';
+import { ModalityCategory } from '../../../modality-category/content-types/modality-category/modality-category';
 import { LinkedEntity_Plain } from '../../../linked-entity/content-types/linked-entity/linked-entity';
 import { WebLink_Plain } from '../../../web-link/content-types/web-link/web-link';
+import { AchievementCategory_Plain } from '../../../achievement-category/content-types/achievement-category/achievement-category';
+import { ModalityCategory_Plain } from '../../../modality-category/content-types/modality-category/modality-category';
 import { AdminPanelRelationPropertyModification } from '../../../../common/schemas-to-ts/AdminPanelRelationPropertyModification';
-
-export enum AchievementType {
-  Award = 'Award',
-  Certificate = 'Certificate',
-  Degree = 'Degree',
-  Diplom = 'Diplom',}
-export enum Modality {
-  Remote = 'Remote',
-  Hybrid = 'Hybrid',
-  OnSite = 'On-site',}
 
 export interface Achievement {
   id: number;
   attributes: {
     createdAt: Date;    updatedAt: Date;    publishedAt?: Date;    title?: string;
     institution?: { data: LinkedEntity };
-    achievementType?: AchievementType;
-    modality?: Modality;
     startDate?: Date;
     endDate?: Date;
     certificateImage?: { data: Media };
@@ -35,6 +27,8 @@ export interface Achievement {
     onPortfolio?: boolean;
     onCv?: boolean;
     achieveLocation?: any;
+    achievementType?: { data: AchievementCategory };
+    modalityType?: { data: ModalityCategory };
     locale: string;
     localizations?: { data: Achievement[] };
   };
@@ -43,8 +37,6 @@ export interface Achievement_Plain {
   id: number;
   createdAt: Date;  updatedAt: Date;  publishedAt?: Date;  title?: string;
   institution?: LinkedEntity_Plain;
-  achievementType?: AchievementType;
-  modality?: Modality;
   startDate?: Date;
   endDate?: Date;
   certificateImage?: Media;
@@ -56,6 +48,8 @@ export interface Achievement_Plain {
   onPortfolio?: boolean;
   onCv?: boolean;
   achieveLocation?: any;
+  achievementType?: AchievementCategory_Plain;
+  modalityType?: ModalityCategory_Plain;
   locale: string;
   localizations?: Achievement[];
 }
@@ -64,8 +58,6 @@ export interface Achievement_NoRelations {
   id: number;
   createdAt: Date;  updatedAt: Date;  publishedAt?: Date;  title?: string;
   institution?: number;
-  achievementType?: AchievementType;
-  modality?: Modality;
   startDate?: Date;
   endDate?: Date;
   certificateImage?: number;
@@ -77,6 +69,8 @@ export interface Achievement_NoRelations {
   onPortfolio?: boolean;
   onCv?: boolean;
   achieveLocation?: any;
+  achievementType?: number;
+  modalityType?: number;
   locale: string;
   localizations?: Achievement[];
 }
@@ -85,8 +79,6 @@ export interface Achievement_AdminPanelLifeCycle {
   id: number;
   createdAt: Date;  updatedAt: Date;  publishedAt?: Date;  title?: string;
   institution?: AdminPanelRelationPropertyModification<LinkedEntity_Plain>;
-  achievementType?: AchievementType;
-  modality?: Modality;
   startDate?: Date;
   endDate?: Date;
   certificateImage?: AdminPanelRelationPropertyModification<Media>;
@@ -98,6 +90,8 @@ export interface Achievement_AdminPanelLifeCycle {
   onPortfolio?: boolean;
   onCv?: boolean;
   achieveLocation?: any;
+  achievementType?: AdminPanelRelationPropertyModification<AchievementCategory_Plain>;
+  modalityType?: AdminPanelRelationPropertyModification<ModalityCategory_Plain>;
   locale: string;
   localizations?: Achievement[];
 }

@@ -2,21 +2,13 @@
 
 import { LinkedEntity } from '../../../linked-entity/content-types/linked-entity/linked-entity';
 import { Project } from '../../../project/content-types/project/project';
+import { EmploymentCategory } from '../../../employment-category/content-types/employment-category/employment-category';
+import { ModalityCategory } from '../../../modality-category/content-types/modality-category/modality-category';
 import { LinkedEntity_Plain } from '../../../linked-entity/content-types/linked-entity/linked-entity';
 import { Project_Plain } from '../../../project/content-types/project/project';
+import { EmploymentCategory_Plain } from '../../../employment-category/content-types/employment-category/employment-category';
+import { ModalityCategory_Plain } from '../../../modality-category/content-types/modality-category/modality-category';
 import { AdminPanelRelationPropertyModification } from '../../../../common/schemas-to-ts/AdminPanelRelationPropertyModification';
-
-export enum EmploymentType {
-  FullTime = 'Full-time',
-  PartTime = 'Part-time',
-  Contract = 'Contract',
-  Freelance = 'Freelance',
-  Internship = 'Internship',
-  Temporary = 'Temporary',}
-export enum JobModality {
-  Remote = 'Remote',
-  Hybrid = 'Hybrid',
-  OnSite = 'On-site',}
 
 export interface WorkExperience {
   id: number;
@@ -24,8 +16,6 @@ export interface WorkExperience {
     createdAt: Date;    updatedAt: Date;    publishedAt?: Date;    company?: { data: LinkedEntity };
     title?: string;
     description?: string;
-    employmentType?: EmploymentType;
-    jobModality?: JobModality;
     startDate?: Date;
     endDate?: Date;
     relatedProjects: { data: Project[] };
@@ -33,6 +23,8 @@ export interface WorkExperience {
     onPortfolio?: boolean;
     onCv?: boolean;
     jobLocation?: any;
+    employmentType?: { data: EmploymentCategory };
+    modality?: { data: ModalityCategory };
     locale: string;
     localizations?: { data: WorkExperience[] };
   };
@@ -42,8 +34,6 @@ export interface WorkExperience_Plain {
   createdAt: Date;  updatedAt: Date;  publishedAt?: Date;  company?: LinkedEntity_Plain;
   title?: string;
   description?: string;
-  employmentType?: EmploymentType;
-  jobModality?: JobModality;
   startDate?: Date;
   endDate?: Date;
   relatedProjects: Project_Plain[];
@@ -51,6 +41,8 @@ export interface WorkExperience_Plain {
   onPortfolio?: boolean;
   onCv?: boolean;
   jobLocation?: any;
+  employmentType?: EmploymentCategory_Plain;
+  modality?: ModalityCategory_Plain;
   locale: string;
   localizations?: WorkExperience[];
 }
@@ -60,8 +52,6 @@ export interface WorkExperience_NoRelations {
   createdAt: Date;  updatedAt: Date;  publishedAt?: Date;  company?: number;
   title?: string;
   description?: string;
-  employmentType?: EmploymentType;
-  jobModality?: JobModality;
   startDate?: Date;
   endDate?: Date;
   relatedProjects: number[];
@@ -69,6 +59,8 @@ export interface WorkExperience_NoRelations {
   onPortfolio?: boolean;
   onCv?: boolean;
   jobLocation?: any;
+  employmentType?: number;
+  modality?: number;
   locale: string;
   localizations?: WorkExperience[];
 }
@@ -78,8 +70,6 @@ export interface WorkExperience_AdminPanelLifeCycle {
   createdAt: Date;  updatedAt: Date;  publishedAt?: Date;  company?: AdminPanelRelationPropertyModification<LinkedEntity_Plain>;
   title?: string;
   description?: string;
-  employmentType?: EmploymentType;
-  jobModality?: JobModality;
   startDate?: Date;
   endDate?: Date;
   relatedProjects: AdminPanelRelationPropertyModification<Project_Plain>;
@@ -87,6 +77,8 @@ export interface WorkExperience_AdminPanelLifeCycle {
   onPortfolio?: boolean;
   onCv?: boolean;
   jobLocation?: any;
+  employmentType?: AdminPanelRelationPropertyModification<EmploymentCategory_Plain>;
+  modality?: AdminPanelRelationPropertyModification<ModalityCategory_Plain>;
   locale: string;
   localizations?: WorkExperience[];
 }

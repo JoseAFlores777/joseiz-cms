@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "degree_categories",
+  "info": {
+    "singularName": "degree-category",
+    "pluralName": "degree-categories",
+    "displayName": "DegreeCategory"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "achievement_categories",
+  "info": {
+    "singularName": "achievement-category",
+    "pluralName": "achievement-categories",
+    "displayName": "AchievementCategory"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

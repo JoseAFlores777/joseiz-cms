@@ -705,21 +705,6 @@ export interface ApiAchievementAchievement extends Schema.CollectionType {
       'oneToOne',
       'api::linked-entity.linked-entity'
     >;
-    achievementType: Attribute.Enumeration<
-      ['Award', 'Certificate', 'Degree', 'Diplom']
-    > &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }> &
-      Attribute.DefaultTo<'Diplom'>;
-    modality: Attribute.Enumeration<['Remote', 'Hybrid', 'On-site']> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     startDate: Attribute.Date &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -791,6 +776,16 @@ export interface ApiAchievementAchievement extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    achievementType: Attribute.Relation<
+      'api::achievement.achievement',
+      'oneToOne',
+      'api::achievement-category.achievement-category'
+    >;
+    modalityType: Attribute.Relation<
+      'api::achievement.achievement',
+      'oneToOne',
+      'api::modality-category.modality-category'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -812,6 +807,37 @@ export interface ApiAchievementAchievement extends Schema.CollectionType {
       'api::achievement.achievement'
     >;
     locale: Attribute.String;
+  };
+}
+
+export interface ApiAchievementCategoryAchievementCategory
+  extends Schema.CollectionType {
+  collectionName: 'achievement_categories';
+  info: {
+    singularName: 'achievement-category';
+    pluralName: 'achievement-categories';
+    displayName: 'AchievementCategory';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::achievement-category.achievement-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::achievement-category.achievement-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
   };
 }
 
@@ -912,6 +938,36 @@ export interface ApiCategoryNameCategoryName extends Schema.CollectionType {
   };
 }
 
+export interface ApiDegreeCategoryDegreeCategory extends Schema.CollectionType {
+  collectionName: 'degree_categories';
+  info: {
+    singularName: 'degree-category';
+    pluralName: 'degree-categories';
+    displayName: 'DegreeCategory';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::degree-category.degree-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::degree-category.degree-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiEducationEducation extends Schema.CollectionType {
   collectionName: 'educations';
   info: {
@@ -930,30 +986,6 @@ export interface ApiEducationEducation extends Schema.CollectionType {
   };
   attributes: {
     title: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    educationType: Attribute.Enumeration<
-      [
-        'Bachelor',
-        'Master',
-        'PhD',
-        'Diploma',
-        'Certificate',
-        'Online Course',
-        'Bootcamp',
-        'Workshop',
-        'Self-Study'
-      ]
-    > &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    modality: Attribute.Enumeration<['Remote', 'Hybrid', 'On-site']> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1019,6 +1051,16 @@ export interface ApiEducationEducation extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    degreeType: Attribute.Relation<
+      'api::education.education',
+      'oneToOne',
+      'api::degree-category.degree-category'
+    >;
+    modalityType: Attribute.Relation<
+      'api::education.education',
+      'oneToOne',
+      'api::modality-category.modality-category'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1040,6 +1082,37 @@ export interface ApiEducationEducation extends Schema.CollectionType {
       'api::education.education'
     >;
     locale: Attribute.String;
+  };
+}
+
+export interface ApiEmploymentCategoryEmploymentCategory
+  extends Schema.CollectionType {
+  collectionName: 'employment_categories';
+  info: {
+    singularName: 'employment-category';
+    pluralName: 'employment-categories';
+    displayName: 'employmentCategory';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::employment-category.employment-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::employment-category.employment-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
   };
 }
 
@@ -1299,6 +1372,37 @@ export interface ApiLinkedEntityLinkedEntity extends Schema.CollectionType {
   };
 }
 
+export interface ApiModalityCategoryModalityCategory
+  extends Schema.CollectionType {
+  collectionName: 'modality_categories';
+  info: {
+    singularName: 'modality-category';
+    pluralName: 'modality-categories';
+    displayName: 'ModalityCategory';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::modality-category.modality-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::modality-category.modality-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiProjectProject extends Schema.CollectionType {
   collectionName: 'projects';
   info: {
@@ -1353,30 +1457,6 @@ export interface ApiProjectProject extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    projectType: Attribute.Enumeration<
-      [
-        'Frontend',
-        'Backend',
-        'DevOps',
-        'Design',
-        'Mobile App Development',
-        'Data Science',
-        'Machine Learning',
-        'Artificial Intelligence',
-        'IoT (Internet of Things)',
-        'Game Development',
-        'Blockchain',
-        'Cybersecurity',
-        'Cloud Computing',
-        'Web Development',
-        'UI&UX'
-      ]
-    > &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     codeRepositoryUrl: Attribute.Relation<
       'api::project.project',
       'oneToOne',
@@ -1421,6 +1501,11 @@ export interface ApiProjectProject extends Schema.CollectionType {
         };
       }> &
       Attribute.DefaultTo<true>;
+    projectType: Attribute.Relation<
+      'api::project.project',
+      'oneToOne',
+      'api::project-category.project-category'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1442,6 +1527,37 @@ export interface ApiProjectProject extends Schema.CollectionType {
       'api::project.project'
     >;
     locale: Attribute.String;
+  };
+}
+
+export interface ApiProjectCategoryProjectCategory
+  extends Schema.CollectionType {
+  collectionName: 'project_categories';
+  info: {
+    singularName: 'project-category';
+    pluralName: 'project-categories';
+    displayName: 'ProjectCategory';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::project-category.project-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::project-category.project-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
   };
 }
 
@@ -1603,27 +1719,6 @@ export interface ApiWorkExperienceWorkExperience extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    employmentType: Attribute.Enumeration<
-      [
-        'Full-time',
-        'Part-time',
-        'Contract',
-        'Freelance',
-        'Internship',
-        'Temporary'
-      ]
-    > &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    jobModality: Attribute.Enumeration<['Remote', 'Hybrid', 'On-site']> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     startDate: Attribute.Date &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -1668,6 +1763,16 @@ export interface ApiWorkExperienceWorkExperience extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    employmentType: Attribute.Relation<
+      'api::work-experience.work-experience',
+      'oneToOne',
+      'api::employment-category.employment-category'
+    >;
+    modality: Attribute.Relation<
+      'api::work-experience.work-experience',
+      'oneToOne',
+      'api::modality-category.modality-category'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1709,13 +1814,18 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::achievement.achievement': ApiAchievementAchievement;
+      'api::achievement-category.achievement-category': ApiAchievementCategoryAchievementCategory;
       'api::activity.activity': ApiActivityActivity;
       'api::category-name.category-name': ApiCategoryNameCategoryName;
+      'api::degree-category.degree-category': ApiDegreeCategoryDegreeCategory;
       'api::education.education': ApiEducationEducation;
+      'api::employment-category.employment-category': ApiEmploymentCategoryEmploymentCategory;
       'api::general-info.general-info': ApiGeneralInfoGeneralInfo;
       'api::language.language': ApiLanguageLanguage;
       'api::linked-entity.linked-entity': ApiLinkedEntityLinkedEntity;
+      'api::modality-category.modality-category': ApiModalityCategoryModalityCategory;
       'api::project.project': ApiProjectProject;
+      'api::project-category.project-category': ApiProjectCategoryProjectCategory;
       'api::skill.skill': ApiSkillSkill;
       'api::web-link.web-link': ApiWebLinkWebLink;
       'api::work-experience.work-experience': ApiWorkExperienceWorkExperience;

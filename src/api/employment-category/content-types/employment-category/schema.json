@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "employment_categories",
+  "info": {
+    "singularName": "employment-category",
+    "pluralName": "employment-categories",
+    "displayName": "employmentCategory"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

@@ -3,32 +3,19 @@
 import { LinkedEntity } from '../../../linked-entity/content-types/linked-entity/linked-entity';
 import { Achievement } from '../../../achievement/content-types/achievement/achievement';
 import { Project } from '../../../project/content-types/project/project';
+import { DegreeCategory } from '../../../degree-category/content-types/degree-category/degree-category';
+import { ModalityCategory } from '../../../modality-category/content-types/modality-category/modality-category';
 import { LinkedEntity_Plain } from '../../../linked-entity/content-types/linked-entity/linked-entity';
 import { Achievement_Plain } from '../../../achievement/content-types/achievement/achievement';
 import { Project_Plain } from '../../../project/content-types/project/project';
+import { DegreeCategory_Plain } from '../../../degree-category/content-types/degree-category/degree-category';
+import { ModalityCategory_Plain } from '../../../modality-category/content-types/modality-category/modality-category';
 import { AdminPanelRelationPropertyModification } from '../../../../common/schemas-to-ts/AdminPanelRelationPropertyModification';
-
-export enum EducationType {
-  Bachelor = 'Bachelor',
-  Master = 'Master',
-  PhD = 'PhD',
-  Diploma = 'Diploma',
-  Certificate = 'Certificate',
-  OnlineCourse = 'Online Course',
-  Bootcamp = 'Bootcamp',
-  Workshop = 'Workshop',
-  SelfStudy = 'Self-Study',}
-export enum Modality {
-  Remote = 'Remote',
-  Hybrid = 'Hybrid',
-  OnSite = 'On-site',}
 
 export interface Education {
   id: number;
   attributes: {
     createdAt: Date;    updatedAt: Date;    publishedAt?: Date;    title?: string;
-    educationType?: EducationType;
-    modality?: Modality;
     startDate?: Date;
     endDate?: Date;
     inProgress?: boolean;
@@ -39,6 +26,8 @@ export interface Education {
     onPortfolio?: boolean;
     onCV?: boolean;
     educationLocation?: any;
+    degreeType?: { data: DegreeCategory };
+    modalityType?: { data: ModalityCategory };
     locale: string;
     localizations?: { data: Education[] };
   };
@@ -46,8 +35,6 @@ export interface Education {
 export interface Education_Plain {
   id: number;
   createdAt: Date;  updatedAt: Date;  publishedAt?: Date;  title?: string;
-  educationType?: EducationType;
-  modality?: Modality;
   startDate?: Date;
   endDate?: Date;
   inProgress?: boolean;
@@ -58,6 +45,8 @@ export interface Education_Plain {
   onPortfolio?: boolean;
   onCV?: boolean;
   educationLocation?: any;
+  degreeType?: DegreeCategory_Plain;
+  modalityType?: ModalityCategory_Plain;
   locale: string;
   localizations?: Education[];
 }
@@ -65,8 +54,6 @@ export interface Education_Plain {
 export interface Education_NoRelations {
   id: number;
   createdAt: Date;  updatedAt: Date;  publishedAt?: Date;  title?: string;
-  educationType?: EducationType;
-  modality?: Modality;
   startDate?: Date;
   endDate?: Date;
   inProgress?: boolean;
@@ -77,6 +64,8 @@ export interface Education_NoRelations {
   onPortfolio?: boolean;
   onCV?: boolean;
   educationLocation?: any;
+  degreeType?: number;
+  modalityType?: number;
   locale: string;
   localizations?: Education[];
 }
@@ -84,8 +73,6 @@ export interface Education_NoRelations {
 export interface Education_AdminPanelLifeCycle {
   id: number;
   createdAt: Date;  updatedAt: Date;  publishedAt?: Date;  title?: string;
-  educationType?: EducationType;
-  modality?: Modality;
   startDate?: Date;
   endDate?: Date;
   inProgress?: boolean;
@@ -96,6 +83,8 @@ export interface Education_AdminPanelLifeCycle {
   onPortfolio?: boolean;
   onCV?: boolean;
   educationLocation?: any;
+  degreeType?: AdminPanelRelationPropertyModification<DegreeCategory_Plain>;
+  modalityType?: AdminPanelRelationPropertyModification<ModalityCategory_Plain>;
   locale: string;
   localizations?: Education[];
 }
