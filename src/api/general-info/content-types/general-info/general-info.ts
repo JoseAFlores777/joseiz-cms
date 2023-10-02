@@ -4,9 +4,19 @@ import { Media } from '../../../../common/schemas-to-ts/Media';
 import { Language } from '../../../language/content-types/language/language';
 import { WebLink } from '../../../web-link/content-types/web-link/web-link';
 import { Activity } from '../../../activity/content-types/activity/activity';
+import { Achievement } from '../../../achievement/content-types/achievement/achievement';
+import { Education } from '../../../education/content-types/education/education';
+import { WorkExperience } from '../../../work-experience/content-types/work-experience/work-experience';
+import { Project } from '../../../project/content-types/project/project';
+import { LinkedEntity } from '../../../linked-entity/content-types/linked-entity/linked-entity';
 import { Language_Plain } from '../../../language/content-types/language/language';
 import { WebLink_Plain } from '../../../web-link/content-types/web-link/web-link';
 import { Activity_Plain } from '../../../activity/content-types/activity/activity';
+import { Achievement_Plain } from '../../../achievement/content-types/achievement/achievement';
+import { Education_Plain } from '../../../education/content-types/education/education';
+import { WorkExperience_Plain } from '../../../work-experience/content-types/work-experience/work-experience';
+import { Project_Plain } from '../../../project/content-types/project/project';
+import { LinkedEntity_Plain } from '../../../linked-entity/content-types/linked-entity/linked-entity';
 import { AdminPanelRelationPropertyModification } from '../../../../common/schemas-to-ts/AdminPanelRelationPropertyModification';
 
 export interface GeneralInfo {
@@ -26,6 +36,11 @@ export interface GeneralInfo {
     hobbies: { data: Activity[] };
     softSkills: { data: Activity[] };
     location?: any;
+    achievements: { data: Achievement[] };
+    educations: { data: Education[] };
+    workExperiences: { data: WorkExperience[] };
+    projects: { data: Project[] };
+    skills: { data: LinkedEntity[] };
     locale: string;
     localizations?: { data: GeneralInfo[] };
   };
@@ -46,6 +61,11 @@ export interface GeneralInfo_Plain {
   hobbies: Activity_Plain[];
   softSkills: Activity_Plain[];
   location?: any;
+  achievements: Achievement_Plain[];
+  educations: Education_Plain[];
+  workExperiences: WorkExperience_Plain[];
+  projects: Project_Plain[];
+  skills: LinkedEntity_Plain[];
   locale: string;
   localizations?: GeneralInfo[];
 }
@@ -66,6 +86,11 @@ export interface GeneralInfo_NoRelations {
   hobbies: number[];
   softSkills: number[];
   location?: any;
+  achievements: number[];
+  educations: number[];
+  workExperiences: number[];
+  projects: number[];
+  skills: number[];
   locale: string;
   localizations?: GeneralInfo[];
 }
@@ -86,6 +111,11 @@ export interface GeneralInfo_AdminPanelLifeCycle {
   hobbies: AdminPanelRelationPropertyModification<Activity_Plain>;
   softSkills: AdminPanelRelationPropertyModification<Activity_Plain>;
   location?: any;
+  achievements: AdminPanelRelationPropertyModification<Achievement_Plain>;
+  educations: AdminPanelRelationPropertyModification<Education_Plain>;
+  workExperiences: AdminPanelRelationPropertyModification<WorkExperience_Plain>;
+  projects: AdminPanelRelationPropertyModification<Project_Plain>;
+  skills: AdminPanelRelationPropertyModification<LinkedEntity_Plain>;
   locale: string;
   localizations?: GeneralInfo[];
 }

@@ -18,6 +18,9 @@ export interface LinkedEntity {
     secondaryImage?: { data: Media };
     slug?: string;
     projects?: { data: Project[] };
+    playAsSkill?: boolean;
+    onPortfolio?: boolean;
+    onCV?: boolean;
     locale: string;
     localizations?: { data: LinkedEntity[] };
   };
@@ -34,6 +37,9 @@ export interface LinkedEntity_Plain {
   secondaryImage?: Media;
   slug?: string;
   projects?: Project_Plain[];
+  playAsSkill?: boolean;
+  onPortfolio?: boolean;
+  onCV?: boolean;
   locale: string;
   localizations?: LinkedEntity[];
 }
@@ -50,6 +56,9 @@ export interface LinkedEntity_NoRelations {
   secondaryImage?: number;
   slug?: string;
   projects?: number[];
+  playAsSkill?: boolean;
+  onPortfolio?: boolean;
+  onCV?: boolean;
   locale: string;
   localizations?: LinkedEntity[];
 }
@@ -66,6 +75,9 @@ export interface LinkedEntity_AdminPanelLifeCycle {
   secondaryImage?: AdminPanelRelationPropertyModification<Media>;
   slug?: string;
   projects?: AdminPanelRelationPropertyModification<Project_Plain>;
+  playAsSkill?: boolean;
+  onPortfolio?: boolean;
+  onCV?: boolean;
   locale: string;
   localizations?: LinkedEntity[];
 }

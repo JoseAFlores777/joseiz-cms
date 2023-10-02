@@ -1215,6 +1215,31 @@ export interface ApiGeneralInfoGeneralInfo extends Schema.SingleType {
           localized: true;
         };
       }>;
+    achievements: Attribute.Relation<
+      'api::general-info.general-info',
+      'oneToMany',
+      'api::achievement.achievement'
+    >;
+    educations: Attribute.Relation<
+      'api::general-info.general-info',
+      'oneToMany',
+      'api::education.education'
+    >;
+    workExperiences: Attribute.Relation<
+      'api::general-info.general-info',
+      'oneToMany',
+      'api::work-experience.work-experience'
+    >;
+    projects: Attribute.Relation<
+      'api::general-info.general-info',
+      'oneToMany',
+      'api::project.project'
+    >;
+    skills: Attribute.Relation<
+      'api::general-info.general-info',
+      'oneToMany',
+      'api::linked-entity.linked-entity'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1354,6 +1379,27 @@ export interface ApiLinkedEntityLinkedEntity extends Schema.CollectionType {
       'manyToMany',
       'api::project.project'
     >;
+    playAsSkill: Attribute.Boolean &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.DefaultTo<false>;
+    onPortfolio: Attribute.Boolean &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.DefaultTo<true>;
+    onCV: Attribute.Boolean &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.DefaultTo<true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1569,71 +1615,6 @@ export interface ApiProjectCategoryProjectCategory
   };
 }
 
-export interface ApiSkillSkill extends Schema.CollectionType {
-  collectionName: 'skills';
-  info: {
-    singularName: 'skill';
-    pluralName: 'skills';
-    displayName: 'Skill';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    linked_entity: Attribute.Relation<
-      'api::skill.skill',
-      'oneToOne',
-      'api::linked-entity.linked-entity'
-    >;
-    onPortfolio: Attribute.Boolean &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }> &
-      Attribute.DefaultTo<true>;
-    onCv: Attribute.Boolean &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }> &
-      Attribute.DefaultTo<true>;
-    category: Attribute.Relation<
-      'api::skill.skill',
-      'oneToOne',
-      'api::category-name.category-name'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::skill.skill',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::skill.skill',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    localizations: Attribute.Relation<
-      'api::skill.skill',
-      'oneToMany',
-      'api::skill.skill'
-    >;
-    locale: Attribute.String;
-  };
-}
-
 export interface ApiWebLinkWebLink extends Schema.CollectionType {
   collectionName: 'web_links';
   info: {
@@ -1834,7 +1815,6 @@ declare module '@strapi/types' {
       'api::modality-category.modality-category': ApiModalityCategoryModalityCategory;
       'api::project.project': ApiProjectProject;
       'api::project-category.project-category': ApiProjectCategoryProjectCategory;
-      'api::skill.skill': ApiSkillSkill;
       'api::web-link.web-link': ApiWebLinkWebLink;
       'api::work-experience.work-experience': ApiWorkExperienceWorkExperience;
     }

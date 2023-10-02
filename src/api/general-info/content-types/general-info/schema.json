@@ -132,6 +132,31 @@
       },
       "type": "customField",
       "customField": "plugin::country-select.country"
+    },
+    "achievements": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::achievement.achievement"
+    },
+    "educations": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::education.education"
+    },
+    "workExperiences": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::work-experience.work-experience"
+    },
+    "projects": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::project.project"
+    },
+    "skills": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::linked-entity.linked-entity"
     }
   }
 }
