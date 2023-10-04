@@ -1240,6 +1240,11 @@ export interface ApiGeneralInfoGeneralInfo extends Schema.SingleType {
       'oneToMany',
       'api::linked-entity.linked-entity'
     >;
+    hardSkills: Attribute.Relation<
+      'api::general-info.general-info',
+      'oneToMany',
+      'api::activity.activity'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1400,6 +1405,11 @@ export interface ApiLinkedEntityLinkedEntity extends Schema.CollectionType {
         };
       }> &
       Attribute.DefaultTo<true>;
+    skillCategory: Attribute.Relation<
+      'api::linked-entity.linked-entity',
+      'oneToOne',
+      'api::category-name.category-name'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

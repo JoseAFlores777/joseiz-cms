@@ -138,6 +138,11 @@
       },
       "type": "boolean",
       "default": true
+    },
+    "skillCategory": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::category-name.category-name"
     }
   }
 }

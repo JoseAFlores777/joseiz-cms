@@ -2,7 +2,9 @@
 
 import { Media } from '../../../../common/schemas-to-ts/Media';
 import { Project } from '../../../project/content-types/project/project';
+import { CategoryName } from '../../../category-name/content-types/category-name/category-name';
 import { Project_Plain } from '../../../project/content-types/project/project';
+import { CategoryName_Plain } from '../../../category-name/content-types/category-name/category-name';
 import { AdminPanelRelationPropertyModification } from '../../../../common/schemas-to-ts/AdminPanelRelationPropertyModification';
 
 export interface LinkedEntity {
@@ -21,6 +23,7 @@ export interface LinkedEntity {
     playAsSkill?: boolean;
     onPortfolio?: boolean;
     onCV?: boolean;
+    skillCategory?: { data: CategoryName };
     locale: string;
     localizations?: { data: LinkedEntity[] };
   };
@@ -40,6 +43,7 @@ export interface LinkedEntity_Plain {
   playAsSkill?: boolean;
   onPortfolio?: boolean;
   onCV?: boolean;
+  skillCategory?: CategoryName_Plain;
   locale: string;
   localizations?: LinkedEntity[];
 }
@@ -59,6 +63,7 @@ export interface LinkedEntity_NoRelations {
   playAsSkill?: boolean;
   onPortfolio?: boolean;
   onCV?: boolean;
+  skillCategory?: number;
   locale: string;
   localizations?: LinkedEntity[];
 }
@@ -78,6 +83,7 @@ export interface LinkedEntity_AdminPanelLifeCycle {
   playAsSkill?: boolean;
   onPortfolio?: boolean;
   onCV?: boolean;
+  skillCategory?: AdminPanelRelationPropertyModification<CategoryName_Plain>;
   locale: string;
   localizations?: LinkedEntity[];
 }

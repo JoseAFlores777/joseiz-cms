@@ -157,6 +157,11 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::linked-entity.linked-entity"
+    },
+    "hardSkills": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::activity.activity"
     }
   }
 }

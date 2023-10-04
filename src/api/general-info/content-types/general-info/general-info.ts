@@ -41,6 +41,7 @@ export interface GeneralInfo {
     workExperiences: { data: WorkExperience[] };
     projects: { data: Project[] };
     skills: { data: LinkedEntity[] };
+    hardSkills: { data: Activity[] };
     locale: string;
     localizations?: { data: GeneralInfo[] };
   };
@@ -66,6 +67,7 @@ export interface GeneralInfo_Plain {
   workExperiences: WorkExperience_Plain[];
   projects: Project_Plain[];
   skills: LinkedEntity_Plain[];
+  hardSkills: Activity_Plain[];
   locale: string;
   localizations?: GeneralInfo[];
 }
@@ -91,6 +93,7 @@ export interface GeneralInfo_NoRelations {
   workExperiences: number[];
   projects: number[];
   skills: number[];
+  hardSkills: number[];
   locale: string;
   localizations?: GeneralInfo[];
 }
@@ -116,6 +119,7 @@ export interface GeneralInfo_AdminPanelLifeCycle {
   workExperiences: AdminPanelRelationPropertyModification<WorkExperience_Plain>;
   projects: AdminPanelRelationPropertyModification<Project_Plain>;
   skills: AdminPanelRelationPropertyModification<LinkedEntity_Plain>;
+  hardSkills: AdminPanelRelationPropertyModification<Activity_Plain>;
   locale: string;
   localizations?: GeneralInfo[];
 }
